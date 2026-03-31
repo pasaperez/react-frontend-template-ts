@@ -18,13 +18,12 @@
         "isolatedModules": true,
         "jsx": "react-jsx",
         "noEmit": true,
-        "baseUrl": ".",
         "types": ["vite/client", "vitest/globals", "@testing-library/jest-dom"],
         "paths": {
-            "@app/*": ["src/app/*"],
-            "@shared/*": ["src/shared/*"],
-            "@features/*": ["src/features/*"],
-            "@tests/*": ["tests/*"]
+            "@app/*": ["./src/app/*"],
+            "@shared/*": ["./src/shared/*"],
+            "@features/*": ["./src/features/*"],
+            "@tests/*": ["./tests/*"]
         }
     },
     "include": ["src", "tests", "vite.config.ts", "vitest.config.ts"]
