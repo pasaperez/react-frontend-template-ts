@@ -1,0 +1,31 @@
+{
+    "compilerOptions": {
+        "target": "ES2022",
+        "useDefineForClassFields": true,
+        "module": "ESNext",
+        "moduleResolution": "Bundler",
+        "lib": ["DOM", "DOM.Iterable", "ES2022"],
+        "strict": true,
+        "noUncheckedIndexedAccess": true,
+        "exactOptionalPropertyTypes": true,
+        "noImplicitOverride": true,
+        "noFallthroughCasesInSwitch": true,
+        "allowSyntheticDefaultImports": true,
+        "esModuleInterop": true,
+        "forceConsistentCasingInFileNames": true,
+        "skipLibCheck": true,
+        "resolveJsonModule": true,
+        "isolatedModules": true,
+        "jsx": "react-jsx",
+        "noEmit": true,
+        "baseUrl": ".",
+        "types": ["vite/client", "vitest/globals", "@testing-library/jest-dom"],
+        "paths": {
+            "@app/*": ["src/app/*"],
+            "@shared/*": ["src/shared/*"],
+            "@features/*": ["src/features/*"],
+            "@tests/*": ["tests/*"]
+        }
+    },
+    "include": ["src", "tests", "vite.config.ts", "vitest.config.ts"]
+}
