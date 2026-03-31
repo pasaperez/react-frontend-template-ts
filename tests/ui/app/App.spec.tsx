@@ -171,9 +171,10 @@ describe('App', () => {
         expect(await screen.findByRole('button', { name: 'Creating...' })).toBeDisabled();
         createUserDeferred.resolve(existingUser);
         await waitFor(() => expect(createUser.execute).toHaveBeenCalledTimes(1));
+        await waitFor(() => expect(screen.queryByRole('heading', { name: 'New user' })).not.toBeInTheDocument());
 
         fireEvent.click(screen.getByRole('button', { name: 'Edit Alice Example' }));
-        fireEvent.click(screen.getByRole('button', { name: 'Save changes' }));
+        fireEvent.click(await screen.findByRole('button', { name: 'Save changes' }));
 
         expect(await screen.findByRole('button', { name: 'Saving...' })).toBeDisabled();
         updateUserDeferred.resolve(existingUser);
