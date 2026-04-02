@@ -1,0 +1,97 @@
+<svg width="1280" height="640" viewBox="0 0 1280 640" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc" style="overflow:hidden">
+  <title id="title">React frontend template banner</title>
+  <desc id="desc">Banner for the React frontend TypeScript template with feature-first architecture, HTTP integration, and semantic themes.</desc>
+  <defs>
+    <linearGradient id="bg" x1="72" y1="32" x2="1212" y2="608" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFF7EE"/>
+      <stop offset="0.5" stop-color="#F7FBFF"/>
+      <stop offset="1" stop-color="#F2FFF6"/>
+    </linearGradient>
+    <linearGradient id="window" x1="706" y1="88" x2="1184" y2="552" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#F7FAFE"/>
+    </linearGradient>
+    <filter id="shadow" x="662" y="58" width="568" height="552" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="30" stdDeviation="24" flood-color="#19314A14"/>
+    </filter>
+    <clipPath id="leftClip">
+      <rect x="64" y="72" width="560" height="520" rx="0"/>
+    </clipPath>
+    <clipPath id="windowClip">
+      <rect x="706" y="88" width="492" height="468" rx="32"/>
+    </clipPath>
+  </defs>
+
+  <rect width="1280" height="640" rx="32" fill="url(#bg)"/>
+  <circle cx="118" cy="124" r="78" fill="#FFE7C0"/>
+  <circle cx="1122" cy="118" r="92" fill="#DCEBFF"/>
+  <circle cx="1212" cy="210" r="52" fill="#E0F7E5"/>
+  <path d="M76 522C198 458 324 418 468 418C600 418 736 454 852 504C960 552 1086 560 1202 526" stroke="#D7E8F1" stroke-width="3" stroke-linecap="round"/>
+
+  <g clip-path="url(#leftClip)">
+    <rect x="92" y="100" width="154" height="38" rx="19" fill="#E7F0FF"/>
+    <text x="169" y="125" fill="#2455D9" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700" text-anchor="middle">React + Vite</text>
+
+    <text x="92" y="196" fill="#111827" font-family="Arial, Helvetica, sans-serif" font-size="60" font-weight="700">Frontend Template</text>
+    <text x="92" y="250" fill="#D97706" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700">TypeScript • Feature-first • API-ready</text>
+
+    <text x="92" y="306" fill="#46566E" font-family="Arial, Helvetica, sans-serif" font-size="18">Manual composition, HTTP integration, semantic themes,</text>
+    <text x="92" y="336" fill="#46566E" font-family="Arial, Helvetica, sans-serif" font-size="18">and feature modules that keep replacement points explicit.</text>
+
+    <rect x="92" y="404" width="172" height="48" rx="24" fill="#0F172A"/>
+    <text x="178" y="435" fill="#FFFFFF" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="700" text-anchor="middle">real HTTP flow</text>
+    <rect x="278" y="404" width="176" height="48" rx="24" fill="#FFFFFF" stroke="#D7E2EA" stroke-width="2"/>
+    <text x="366" y="435" fill="#132238" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="700" text-anchor="middle">theme catalog</text>
+
+    <rect x="92" y="488" width="126" height="92" rx="20" fill="#FFFFFF" stroke="#D8E5EE"/>
+    <rect x="232" y="488" width="126" height="92" rx="20" fill="#FFFFFF" stroke="#D8E5EE"/>
+    <rect x="372" y="488" width="126" height="92" rx="20" fill="#FFFFFF" stroke="#D8E5EE"/>
+
+    <text x="116" y="516" fill="#6B7280" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="700">State</text>
+    <text x="155" y="544" fill="#111827" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700" text-anchor="middle">TanStack</text>
+    <text x="155" y="564" fill="#111827" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700" text-anchor="middle">Query</text>
+
+    <text x="256" y="516" fill="#6B7280" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="700">Forms</text>
+    <text x="295" y="544" fill="#111827" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700" text-anchor="middle">Zod</text>
+    <text x="295" y="564" fill="#111827" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700" text-anchor="middle">RHF</text>
+
+    <text x="396" y="516" fill="#6B7280" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="700">Quality</text>
+    <text x="435" y="544" fill="#111827" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700" text-anchor="middle">Vitest</text>
+    <text x="435" y="564" fill="#111827" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700" text-anchor="middle">Deps</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="706" y="88" width="492" height="468" rx="32" fill="url(#window)"/>
+    <g clip-path="url(#windowClip)">
+      <rect x="706" y="88" width="492" height="56" rx="32" fill="#EEF3F8"/>
+      <circle cx="742" cy="114" r="8" fill="#FF8A1C"/>
+      <circle cx="766" cy="114" r="8" fill="#FACC15"/>
+      <circle cx="790" cy="114" r="8" fill="#22C55E"/>
+
+      <rect x="738" y="176" width="112" height="330" rx="26" fill="#152A41"/>
+      <rect x="766" y="208" width="54" height="12" rx="6" fill="#A9C7E3"/>
+      <rect x="766" y="244" width="54" height="54" rx="18" fill="#234162"/>
+      <rect x="781" y="260" width="24" height="22" rx="8" fill="#40C0FF"/>
+      <rect x="766" y="326" width="58" height="10" rx="5" fill="#7794B3"/>
+      <rect x="766" y="354" width="58" height="10" rx="5" fill="#7794B3"/>
+      <rect x="766" y="382" width="58" height="10" rx="5" fill="#7794B3"/>
+
+      <rect x="882" y="176" width="270" height="116" rx="24" fill="#F8FBFE"/>
+      <text x="908" y="214" fill="#111827" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700">Users</text>
+      <rect x="1040" y="196" width="106" height="30" rx="15" fill="#E78612"/>
+      <text x="1093" y="216" fill="#FFFFFF" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" text-anchor="middle">POST /api</text>
+      <text x="908" y="246" fill="#637086" font-family="Arial, Helvetica, sans-serif" font-size="15">Query-driven list and</text>
+      <text x="908" y="268" fill="#637086" font-family="Arial, Helvetica, sans-serif" font-size="15">mutation flows</text>
+      <rect x="908" y="276" width="94" height="12" rx="6" fill="#D7E6F3"/>
+
+      <rect x="882" y="300" width="126" height="182" rx="24" fill="#FFF7EC"/>
+      <rect x="1026" y="300" width="126" height="182" rx="24" fill="#EEF6FF"/>
+      <rect x="910" y="332" width="88" height="18" rx="9" fill="#F59E0B"/>
+      <rect x="910" y="364" width="88" height="18" rx="9" fill="#18B47B"/>
+      <rect x="1054" y="332" width="88" height="18" rx="9" fill="#3567E0"/>
+      <rect x="1054" y="364" width="88" height="18" rx="9" fill="#7B45E6"/>
+      <text x="945" y="456" fill="#A2640A" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" text-anchor="middle">Theme picker</text>
+      <text x="1089" y="456" fill="#2552D6" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" text-anchor="middle">Routes</text>
+    </g>
+  </g>
+</svg>
