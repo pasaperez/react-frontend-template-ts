@@ -1,3 +1,4 @@
+import { readStorageValue, writeStorageValue } from '@app/storage/safeStorage';
 import { ThemeSelector } from '@app/theme/ThemeSelector';
 import type { ReactElement } from 'react';
 import { useState } from 'react';
@@ -9,11 +10,11 @@ const sidebarStorageKey = 'react-frontend-template-ts.sidebar';
 const navigationItems = [{ id: 'users', label: 'Users', shortLabel: 'U', to: '/users' }] as const;
 
 function readStoredSidebarState(storage: Storage): boolean {
-    return storage.getItem(sidebarStorageKey) === 'collapsed';
+    return readStorageValue(storage, sidebarStorageKey) === 'collapsed';
 }
 
 function persistSidebarState(storage: Storage, isCollapsed: boolean): void {
-    storage.setItem(sidebarStorageKey, isCollapsed ? 'collapsed' : 'expanded');
+    writeStorageValue(storage, sidebarStorageKey, isCollapsed ? 'collapsed' : 'expanded');
 }
 
 interface NavigationToggleButtonProps {

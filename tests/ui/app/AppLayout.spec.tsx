@@ -3,7 +3,7 @@ import { ThemeProvider } from '@app/providers/ThemeProvider';
 import { render, screen } from '@testing-library/react';
 import { fireEvent } from '@testing-library/react';
 import { createMemoryRouter, RouterProvider } from 'react-router-dom';
-import { describe, expect, it } from 'vitest';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 
 const sidebarStorageKey = 'react-frontend-template-ts.sidebar';
 
@@ -32,6 +32,10 @@ function getFrame(): HTMLElement {
 }
 
 describe('AppLayout', () => {
+    afterEach(() => {
+        vi.restoreAllMocks();
+    });
+
     it('renders the header, sidebar navigation, and active route content', async () => {
         renderLayout('/users');
 
@@ -90,5 +94,24 @@ describe('AppLayout', () => {
         fireEvent.click(screen.getByRole('link', { name: 'Users' }));
 
         expect(getFrame()).not.toHaveClass('app-frame--mobile-nav-open');
+    });
+
+    it('keeps the layout interactive when browser storage is unavailable', () => {
+        vi.spyOn(Storage.prototype, 'getItem').mockImplementation(() => {
+            throw new Error('Storage is blocked.');
+        });
+        vi.spyOn(Storage.prototype, 'setItem').mockImplementation(() => {
+            throw new Error('Storage is blocked.');
+        });
+
+        renderLayout('/users');
+
+        fireEvent.click(screen.getByRole('button', { name: 'Collapse navigation' }));
+        expect(getFrame()).toHaveClass('app-frame--sidebar-collapsed');
+
+        fireEvent.click(screen.getByRole('button', { name: /theme/i }));
+        fireEvent.click(screen.getAllByRole('button', { name: /Nightfall/i })[0]!);
+
+        expect(screen.getByRole('button', { name: /theme/i })).toHaveTextContent('Nightfall');
     });
 });

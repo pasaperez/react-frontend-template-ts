@@ -73,7 +73,6 @@ export function ThemeSelector(): ReactElement {
             <button
                 aria-controls={isSelectorOpen ? panelId : undefined}
                 aria-expanded={isSelectorOpen}
-                aria-haspopup='dialog'
                 className='theme-switcher__trigger'
                 onClick={() => setIsSelectorOpen((currentValue: boolean) => !currentValue)}
                 type='button'
@@ -83,7 +82,7 @@ export function ThemeSelector(): ReactElement {
             </button>
             {isSelectorOpen
                 ? (
-                    <div aria-label='Theme palette' aria-modal='false' className='theme-switcher__panel' id={panelId} role='dialog'>
+                    <div aria-label='Theme palette' className='theme-switcher__panel' id={panelId} role='group'>
                         {Object.entries(groupedThemes).map(([mode, modeThemes]: [string, readonly ThemeDefinition[]]) => (
                             <section className='theme-switcher__section' key={mode}>
                                 <h2 className='theme-switcher__section-title'>{modeLabels[mode as keyof typeof modeLabels]}</h2>

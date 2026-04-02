@@ -4,10 +4,10 @@
 <summary>English</summary>
 
 Scalable React frontend template with strict TypeScript, feature-first architecture, explicit boundaries, and replaceable adapters.
-It is intended to work with the matching backend template, not as an isolated demo frontend.
+It is intended to consume a real HTTP API, not behave like an isolated demo frontend.
 
 The template keeps React dependencies current, but avoids introducing unnecessary layers or magic containers.
-Composition is manual, feature ownership is explicit, and the first included feature already talks to the backend template through real HTTP calls.
+Composition is manual, feature ownership is explicit, and the first included feature already talks to a concrete REST API through real HTTP calls.
 
 ## What is included
 
@@ -22,7 +22,7 @@ Composition is manual, feature ownership is explicit, and the first included fea
 - TanStack Query for server state
 - React Hook Form and Zod for forms and validation
 - HTTP adapter abstraction with a concrete `fetch` implementation
-- Complete working `users` example connected to the backend template
+- Complete working `users` example connected to a concrete users REST API
 - ESLint, `eslint-plugin-boundaries`, dependency-cruiser, Vitest, and dprint
 - Coverage thresholds fixed at `100%`
 
@@ -182,7 +182,7 @@ docker run --rm -p 8080:80 react-frontend-template-ts
 The container serves the built frontend on port `80`.
 Open `http://localhost:8080`.
 
-## Environment and backend integration
+## Environment and API integration
 
 Base `.env.example`:
 
@@ -195,7 +195,7 @@ Development behavior:
 - the frontend uses Vite's dev server proxy
 - browser requests stay same-origin from the browser point of view
 - Vite forwards `/api/*` and `/health` to the backend
-- this avoids CORS problems when the backend template does not expose CORS headers
+- this avoids CORS problems when the target API does not expose CORS headers
 
 Production behavior:
 
@@ -220,9 +220,9 @@ Other useful options, but intentionally not included here by default:
 - `Mantine` if you later decide to adopt a component library that already includes color-scheme helpers
 - `MUI` is intentionally not part of this template
 
-## Example backend contract
+## Example API contract
 
-The included `users` feature is wired to the backend template endpoints:
+The included `users` feature expects the following REST endpoints by default:
 
 ```http
 GET    /api/v1/users
@@ -296,6 +296,8 @@ For a backend-connected feature, the expected direction is:
 - Zod validation happens at input boundaries, not scattered through components
 - Dependencies are wired manually to keep replacement points obvious
 - The example talks to a real backend contract so the template proves frontend-backend integration from the first commit
+- Test-only resets, fixtures, mocks, and similar helpers stay in `tests/**` or test setup, not in `src/**`, unless they are real runtime dependency boundaries
+- Runtime code should clean up listeners, subscriptions, timers, query side effects, and similar resources, and should avoid unbounded app-level caches or stores unless that boundary is intentional
 
 ## Optional architectural decisions
 
@@ -307,10 +309,10 @@ For a backend-connected feature, the expected direction is:
 <summary>Español</summary>
 
 Template de frontend escalable con React, TypeScript estricto, arquitectura feature-first, límites explícitos y adapters reemplazables.
-Está pensado para trabajar con el template de backend correspondiente, no como una demo frontend aislada.
+Está pensado para consumir una API HTTP real, no como una demo frontend aislada.
 
 El template mantiene dependencias actuales del ecosistema React, pero evita capas innecesarias o contenedores mágicos.
-La composición es manual, la pertenencia por feature es explícita y la primera feature incluida ya consume el backend por HTTP real.
+La composición es manual, la pertenencia por feature es explícita y la primera feature incluida ya consume una API REST concreta por HTTP real.
 
 ## Qué incluye
 
@@ -325,7 +327,7 @@ La composición es manual, la pertenencia por feature es explícita y la primera
 - TanStack Query para server state
 - React Hook Form y Zod para formularios y validación
 - Abstracción de cliente HTTP con implementación concreta basada en `fetch`
-- Ejemplo funcional completo con `users`, conectado al backend template
+- Ejemplo funcional completo con `users`, conectado a una API REST concreta de usuarios
 - ESLint, `eslint-plugin-boundaries`, dependency-cruiser, Vitest y dprint
 - Thresholds de cobertura fijados en `100%`
 
@@ -485,7 +487,7 @@ docker run --rm -p 8080:80 react-frontend-template-ts
 El contenedor sirve el frontend compilado en el puerto `80`.
 Abrí `http://localhost:8080`.
 
-## Entorno e integración con backend
+## Entorno e integración con API
 
 Base de `.env.example`:
 
@@ -498,7 +500,7 @@ Comportamiento en desarrollo:
 - el frontend usa el proxy del dev server de Vite
 - desde el navegador, las requests siguen siendo same-origin
 - Vite reenvía `/api/*` y `/health` hacia el backend
-- esto evita problemas de CORS cuando el backend template no expone headers CORS
+- esto evita problemas de CORS cuando la API de destino no expone headers CORS
 
 Comportamiento en producción:
 
@@ -523,9 +525,9 @@ Otras opciones útiles, pero que no forman parte del template por defecto:
 - `Mantine` si más adelante decidís adoptar una librería de componentes que ya trae helpers de color schemes
 - `MUI` está intencionalmente fuera de este template
 
-## Contrato de ejemplo con backend
+## Contrato de ejemplo con API
 
-La feature `users` incluida está conectada a los endpoints del backend template:
+La feature `users` incluida espera por defecto los siguientes endpoints REST:
 
 ```http
 GET    /api/v1/users
@@ -599,6 +601,8 @@ Para una feature conectada al backend, la dirección esperada es:
 - La validación con Zod ocurre en los bordes de entrada, no dispersa dentro de componentes
 - Las dependencias se conectan manualmente para que los puntos de reemplazo sean obvios
 - El ejemplo consume un contrato backend real para que el template demuestre integración frontend-backend desde el primer commit
+- Los resets, fixtures, mocks y helpers equivalentes exclusivos de testing van en `tests/**` o en el setup de pruebas, no en `src/**`, salvo que sean límites reales de dependencias de runtime
+- El código de runtime debe limpiar listeners, suscripciones, timers, efectos equivalentes de queries y recursos similares, y debe evitar caches o stores globales sin cota salvo que ese límite sea intencional
 
 ## Decisiones opcionales de arquitectura
 

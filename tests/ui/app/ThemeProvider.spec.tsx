@@ -1,7 +1,7 @@
 import { useTheme } from '@app/providers/themeContext';
 import { ThemeProvider } from '@app/providers/ThemeProvider';
 import { fireEvent, render, screen } from '@testing-library/react';
-import { describe, expect, it } from 'vitest';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 
 const storageKey = 'react-frontend-template-ts.theme';
 
@@ -27,6 +27,10 @@ function ThemeConsumer() {
 }
 
 describe('ThemeProvider', () => {
+    afterEach(() => {
+        vi.restoreAllMocks();
+    });
+
     it('uses the default theme and persists selections made through the theme context', () => {
         render(
             <ThemeProvider>
@@ -72,5 +76,27 @@ describe('ThemeProvider', () => {
 
     it('throws when the theme hook is used outside the provider', () => {
         expect(() => render(<ThemeConsumer />)).toThrowError('useTheme must be used within ThemeProvider.');
+    });
+
+    it('falls back to in-memory state when browser storage is unavailable', () => {
+        vi.spyOn(Storage.prototype, 'getItem').mockImplementation(() => {
+            throw new Error('Storage is blocked.');
+        });
+        vi.spyOn(Storage.prototype, 'setItem').mockImplementation(() => {
+            throw new Error('Storage is blocked.');
+        });
+
+        render(
+            <ThemeProvider>
+                <ThemeConsumer />
+            </ThemeProvider>
+        );
+
+        expect(screen.getByText('Fern')).toBeInTheDocument();
+
+        fireEvent.click(screen.getByRole('button', { name: 'Use nightfall' }));
+
+        expect(screen.getByText('Nightfall')).toBeInTheDocument();
+        expect(getThemeRoot()).toHaveAttribute('data-theme', 'nightfall-dark');
     });
 });

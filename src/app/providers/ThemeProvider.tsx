@@ -1,4 +1,5 @@
 import { ThemeContext } from '@app/providers/themeContext';
+import { readStorageValue, writeStorageValue } from '@app/storage/safeStorage';
 import { defaultThemeId, themeCatalog, type ThemeDefinition, type ThemeId } from '@app/theme/themes';
 import { type CSSProperties, type ReactElement, type ReactNode, useState } from 'react';
 
@@ -15,7 +16,7 @@ function getThemeById(themeId: string): ThemeDefinition {
 }
 
 function readStoredThemeId(storage: Storage): ThemeId {
-    const storedThemeId: string | null = storage.getItem(themeStorageKey);
+    const storedThemeId: string | null = readStorageValue(storage, themeStorageKey);
 
     return getThemeById(storedThemeId ?? defaultThemeId).id;
 }
@@ -52,7 +53,7 @@ function createThemeStyle(theme: ThemeDefinition): ThemeStyle {
 }
 
 function persistTheme(storage: Storage, themeId: ThemeId): void {
-    storage.setItem(themeStorageKey, themeId);
+    writeStorageValue(storage, themeStorageKey, themeId);
 }
 
 export function ThemeProvider({ children }: ThemeProviderProps): ReactElement {

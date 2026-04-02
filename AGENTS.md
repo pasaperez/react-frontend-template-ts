@@ -111,7 +111,7 @@ Typical replacement examples that must stay isolated:
 
 Backend integration rule:
 
-- Keep the example frontend feature wired to the matching backend template contract.
+- Keep the example frontend feature wired to the documented `/api/v1/users` REST contract for this repository unless the contract intentionally changes.
 - Default integration target is `/api/v1/users`.
 - Do not place transport details directly in pages or presentational components.
 - In development, prefer the Vite proxy over direct cross-origin browser requests when the backend does not expose CORS headers.
@@ -288,6 +288,7 @@ If coverage is enforced, keep:
 - `bun run test:coverage`
 
 Coverage is enforced at 100% for statements, branches, functions, and lines on included source files.
+- Keep test-only resets, fixtures, mocks, and similar helpers out of `src/**`. Put that support in `tests/**` or test setup unless it is a real runtime dependency boundary.
 
 ## Code conventions
 
@@ -299,6 +300,7 @@ Coverage is enforced at 100% for statements, branches, functions, and lines on i
 - Add comments only when they provide context that the code itself does not communicate.
 - Do not invent abstractions unless they remove real duplication or isolate volatility.
 - Prefer stable, boring code over clever React patterns.
+- Avoid memory leaks and process leaks. Clean up listeners, subscriptions, timers, observers, sockets, workers, query side effects, and similar resources, and do not introduce unbounded app-level stores or caches unless they are deliberate runtime boundaries.
 
 Naming guidance:
 
