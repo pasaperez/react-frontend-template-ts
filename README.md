@@ -30,8 +30,8 @@
   <a href="#espanol">Español</a>
 </p>
 
-| Focus | Runtime | Example integration | Quality gates |
-| --- | --- | --- | --- |
+| Focus                          | Runtime                                       | Example integration                       | Quality gates                                               |
+|--------------------------------|-----------------------------------------------|-------------------------------------------|-------------------------------------------------------------|
 | API-connected React foundation | Bun-first local workflow, Docker-ready output | Real `users` HTTP flow against a REST API | ESLint, dependency-cruiser, Vitest, dprint, `100%` coverage |
 
 ## Architecture At A Glance
@@ -86,17 +86,17 @@ flowchart LR
 Scalable React frontend template with strict TypeScript, feature-first architecture, explicit boundaries, and replaceable adapters.
 It is intended to consume a real HTTP API, not behave like an isolated demo frontend.
 
-The template keeps React dependencies current, but avoids introducing unnecessary layers or magic containers.
+The template keeps React dependencies current but avoids introducing unnecessary layers or magic containers.
 Composition is manual, feature ownership is explicit, and the first included feature already talks to a concrete REST API through real HTTP calls.
 
 ### Quick Facts
 
-| Area | Details |
-| --- | --- |
-| Repository goal | Start from a frontend that already models a real HTTP integration |
-| Architectural boundary | `app` -> `features/<feature>` -> `shared` |
-| Example feature | `users` with query/mutation hooks against a REST API |
-| Visual direction | Theme catalog with semantic tokens and multiple palettes |
+| Area                   | Details                                                           |
+|------------------------|-------------------------------------------------------------------|
+| Repository goal        | Start from a frontend that already models a real HTTP integration |
+| Architectural boundary | `app` -> `features/<feature>` -> `shared`                         |
+| Example feature        | `users` with query/mutation hooks against a REST API              |
+| Visual direction       | Theme catalog with semantic tokens and multiple palettes          |
 
 ### What Is Included
 
@@ -117,8 +117,8 @@ Composition is manual, feature ownership is explicit, and the first included fea
 
 ### Stack
 
-| Runtime | State and routing | Validation | Quality |
-| --- | --- | --- | --- |
+| Runtime                                      | State and routing                | Validation               | Quality                                                                                                 |
+|----------------------------------------------|----------------------------------|--------------------------|---------------------------------------------------------------------------------------------------------|
 | `Bun`, `React 19`, `Vite`, `Docker`, `Caddy` | `React Router`, `TanStack Query` | `Zod`, `React Hook Form` | `Vitest`, `React Testing Library`, `ESLint`, `dependency-cruiser`, `eslint-plugin-boundaries`, `dprint` |
 
 ### Structure
@@ -224,26 +224,26 @@ bun run dev
 
 Available scripts:
 
-| Purpose | Command |
-| --- | --- |
-| Install | `bun install` |
-| Dev server | `bun run dev` |
-| Production build | `bun run build` |
-| Preview build | `bun run preview` |
-| Tests | `bun run test` |
-| Coverage | `bun run test:coverage` |
-| Lint | `bun run lint` |
-| Format check | `bun run format` |
-| Format write | `bun run format:write` |
+| Purpose          | Command                 |
+|------------------|-------------------------|
+| Install          | `bun install`           |
+| Dev server       | `bun run dev`           |
+| Production build | `bun run build`         |
+| Preview build    | `bun run preview`       |
+| Tests            | `bun run test`          |
+| Coverage         | `bun run test:coverage` |
+| Lint             | `bun run lint`          |
+| Format check     | `bun run format`        |
+| Format write     | `bun run format:write`  |
 
 ### Docker
 
 The repository includes a multi-stage `Dockerfile`.
 
-| Stage | Runtime |
-| --- | --- |
-| Build | `Bun` |
-| Runtime | `Caddy` |
+| Stage        | Runtime                        |
+|--------------|--------------------------------|
+| Build        | `Bun`                          |
+| Runtime      | `Caddy`                        |
 | SPA fallback | configured through `Caddyfile` |
 
 Build example:
@@ -401,12 +401,12 @@ La composición es manual, la pertenencia por feature es explícita y la primera
 
 ### Resumen Rápido
 
-| Área | Detalle |
-| --- | --- |
+| Área                     | Detalle                                                            |
+|--------------------------|--------------------------------------------------------------------|
 | Objetivo del repositorio | Arrancar desde un frontend que ya modele una integración HTTP real |
-| Límite arquitectónico | `app` -> `features/<feature>` -> `shared` |
-| Feature de ejemplo | `users` con hooks de query/mutation contra una API REST |
-| Dirección visual | Catálogo de temas con tokens semánticos y múltiples paletas |
+| Límite arquitectónico    | `app` -> `features/<feature>` -> `shared`                          |
+| Feature de ejemplo       | `users` con hooks de query/mutation contra una API REST            |
+| Dirección visual         | Catálogo de temas con tokens semánticos y múltiples paletas        |
 
 ### Qué Incluye
 
@@ -427,8 +427,8 @@ La composición es manual, la pertenencia por feature es explícita y la primera
 
 ### Stack
 
-| Runtime | Estado y routing | Validación | Calidad |
-| --- | --- | --- | --- |
+| Runtime                                      | Estado y routing                 | Validación               | Calidad                                                                                                 |
+|----------------------------------------------|----------------------------------|--------------------------|---------------------------------------------------------------------------------------------------------|
 | `Bun`, `React 19`, `Vite`, `Docker`, `Caddy` | `React Router`, `TanStack Query` | `Zod`, `React Hook Form` | `Vitest`, `React Testing Library`, `ESLint`, `dependency-cruiser`, `eslint-plugin-boundaries`, `dprint` |
 
 ### Estructura
@@ -534,26 +534,26 @@ bun run dev
 
 Scripts disponibles:
 
-| Propósito | Comando |
-| --- | --- |
-| Instalar | `bun install` |
-| Dev server | `bun run dev` |
-| Build de producción | `bun run build` |
-| Preview | `bun run preview` |
-| Tests | `bun run test` |
-| Cobertura | `bun run test:coverage` |
-| Lint | `bun run lint` |
-| Check de formato | `bun run format` |
-| Escritura de formato | `bun run format:write` |
+| Propósito            | Comando                 |
+|----------------------|-------------------------|
+| Instalar             | `bun install`           |
+| Dev server           | `bun run dev`           |
+| Build de producción  | `bun run build`         |
+| Preview              | `bun run preview`       |
+| Tests                | `bun run test`          |
+| Cobertura            | `bun run test:coverage` |
+| Lint                 | `bun run lint`          |
+| Check de formato     | `bun run format`        |
+| Escritura de formato | `bun run format:write`  |
 
 ### Docker
 
 El repositorio incluye un `Dockerfile` multi-stage.
 
-| Stage | Runtime |
-| --- | --- |
-| Build | `Bun` |
-| Runtime | `Caddy` |
+| Stage           | Runtime                          |
+|-----------------|----------------------------------|
+| Build           | `Bun`                            |
+| Runtime         | `Caddy`                          |
 | Fallback de SPA | configurado mediante `Caddyfile` |
 
 Ejemplo de build:
