@@ -80,8 +80,7 @@ flowchart LR
 <details open>
 <summary><strong>English</strong></summary>
 
-> [!NOTE]
-> The template is designed to consume a real HTTP API, not behave like an isolated demo frontend.
+> **Note:** The template is designed to consume a real HTTP API, not behave like an isolated demo frontend.
 
 Scalable React frontend template with strict TypeScript, feature-first architecture, explicit boundaries, and replaceable adapters.
 It is intended to consume a real HTTP API, not behave like an isolated demo frontend.
@@ -390,8 +389,7 @@ For a backend-connected feature, the expected direction is:
 <details>
 <summary><strong>Español</strong></summary>
 
-> [!NOTE]
-> El template está pensado para consumir una API HTTP real, no como una demo frontend aislada.
+> **Nota:** El template está pensado para consumir una API HTTP real, no como una demo frontend aislada.
 
 Template de frontend escalable con React, TypeScript estricto, arquitectura feature-first, límites explícitos y adapters reemplazables.
 Está pensado para consumir una API HTTP real, no como una demo frontend aislada.
