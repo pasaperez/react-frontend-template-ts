@@ -17,7 +17,7 @@ export function createHttpClientMock(): HttpClientMock {
     );
     const putMock = vi.fn<(path: string, body: unknown) => Promise<unknown>>((_path: string, _body: unknown) => Promise.resolve(undefined));
     const httpClient: HttpClient = {
-        delete: ((path: string) => deleteMock(path)) as HttpClient['delete'],
+        delete: (path: string) => deleteMock(path),
         get: ((path: string) => getMock(path)) as HttpClient['get'],
         post: ((path: string, body: unknown) => postMock(path, body)) as HttpClient['post'],
         put: ((path: string, body: unknown) => putMock(path, body)) as HttpClient['put']

@@ -51,7 +51,7 @@ export class FetchHttpClient implements HttpClient {
         const payload: unknown = await this.parseBody(response);
 
         if (!response.ok) {
-            const errorPayload: ErrorPayload = typeof payload === 'object' && payload !== null ? payload as ErrorPayload : {};
+            const errorPayload: ErrorPayload = typeof payload === 'object' && payload !== null ? payload : {};
 
             throw new HttpError({
                 code: errorPayload.error?.code ?? 'HTTP_ERROR',
