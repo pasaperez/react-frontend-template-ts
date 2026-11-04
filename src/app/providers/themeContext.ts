@@ -1,7 +1,7 @@
 import type { ThemeDefinition, ThemeId } from '@app/theme/themes';
 import { createContext, useContext } from 'react';
 
-export interface ThemeContextValue {
+interface ThemeContextValue {
     readonly activeTheme: ThemeDefinition;
     readonly selectTheme: (themeId: ThemeId) => void;
     readonly themes: readonly ThemeDefinition[];

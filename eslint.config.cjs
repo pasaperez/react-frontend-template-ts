@@ -7,7 +7,7 @@ const reactRefresh = require('eslint-plugin-react-refresh').default;
 const globals = require('globals');
 
 module.exports = [
-    { ignores: ['dist', 'coverage', 'node_modules', '.dependency-cruiser.cjs', 'eslint.config.cjs'] },
+    { ignores: ['dist', 'coverage', 'node_modules', '.dependency-cruiser.cjs', 'eslint.config.cjs', 'scripts'] },
     js.configs.recommended,
     ...tsPlugin.configs['flat/recommended-type-checked'],
     {

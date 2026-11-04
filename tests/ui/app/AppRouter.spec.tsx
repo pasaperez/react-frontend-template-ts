@@ -1,13 +1,13 @@
-import type {AppDependencies} from '@app/composition/createAppDependencies';
-import {AppLayout} from '@app/layout/AppLayout';
-import {ThemeProvider} from '@app/providers/ThemeProvider';
-import {createAppRoutes} from '@app/router/createAppRouter';
-import {RouteErrorBoundary} from '@app/router/RouteErrorBoundary';
-import {render, screen} from '@testing-library/react';
-import type {ReactElement} from 'react';
-import {createElement} from 'react';
-import {createMemoryRouter, MemoryRouter, Outlet, type RouteObject, RouterProvider} from 'react-router-dom';
-import {describe, expect, it, vi} from 'vitest';
+import type { AppDependencies } from '@app/composition/createAppDependencies';
+import { AppLayout } from '@app/layout/AppLayout';
+import { ThemeProvider } from '@app/providers/ThemeProvider';
+import { createAppRoutes } from '@app/router/createAppRouter';
+import { RouteErrorBoundary } from '@app/router/RouteErrorBoundary';
+import { render, screen } from '@testing-library/react';
+import type { ReactElement } from 'react';
+import { createElement } from 'react';
+import { createMemoryRouter, MemoryRouter, Outlet, type RouteObject, RouterProvider } from 'react-router-dom';
+import { describe, expect, it, vi } from 'vitest';
 
 function createDependencies(): AppDependencies {
     return {

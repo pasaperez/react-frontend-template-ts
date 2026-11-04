@@ -31,7 +31,7 @@
 </p>
 
 | Focus                          | Runtime                                       | Example integration                       | Quality gates                                               |
-|--------------------------------|-----------------------------------------------|-------------------------------------------|-------------------------------------------------------------|
+| ------------------------------ | --------------------------------------------- | ----------------------------------------- | ----------------------------------------------------------- |
 | API-connected React foundation | Bun-first local workflow, Docker-ready output | Real `users` HTTP flow against a REST API | ESLint, dependency-cruiser, Vitest, dprint, `100%` coverage |
 
 ## Architecture At A Glance
@@ -77,6 +77,7 @@ flowchart LR
 </table>
 
 <a id="english"></a>
+
 <details open>
 <summary><strong>English</strong></summary>
 
@@ -91,7 +92,7 @@ Composition is manual, feature ownership is explicit, and the first included fea
 ### Quick Facts
 
 | Area                   | Details                                                           |
-|------------------------|-------------------------------------------------------------------|
+| ---------------------- | ----------------------------------------------------------------- |
 | Repository goal        | Start from a frontend that already models a real HTTP integration |
 | Architectural boundary | `app` -> `features/<feature>` -> `shared`                         |
 | Example feature        | `users` with query/mutation hooks against a REST API              |
@@ -112,12 +113,13 @@ Composition is manual, feature ownership is explicit, and the first included fea
 - HTTP adapter abstraction with a concrete `fetch` implementation
 - Complete working `users` example connected to a concrete users REST API
 - ESLint, `eslint-plugin-boundaries`, dependency-cruiser, Vitest, and dprint
+- `scripts/dead-code.mjs` (part of `bun run lint`) fails the build on unused exports, orphan files and unused CSS classes: this template keeps no dead code
 - Coverage thresholds fixed at `100%`
 
 ### Stack
 
 | Runtime                                      | State and routing                | Validation               | Quality                                                                                                 |
-|----------------------------------------------|----------------------------------|--------------------------|---------------------------------------------------------------------------------------------------------|
+| -------------------------------------------- | -------------------------------- | ------------------------ | ------------------------------------------------------------------------------------------------------- |
 | `Bun`, `React 19`, `Vite`, `Docker`, `Caddy` | `React Router`, `TanStack Query` | `Zod`, `React Hook Form` | `Vitest`, `React Testing Library`, `ESLint`, `dependency-cruiser`, `eslint-plugin-boundaries`, `dprint` |
 
 ### Structure
@@ -224,7 +226,7 @@ bun run dev
 Available scripts:
 
 | Purpose          | Command                 |
-|------------------|-------------------------|
+| ---------------- | ----------------------- |
 | Install          | `bun install`           |
 | Dev server       | `bun run dev`           |
 | Production build | `bun run build`         |
@@ -240,7 +242,7 @@ Available scripts:
 The repository includes a multi-stage `Dockerfile`.
 
 | Stage        | Runtime                        |
-|--------------|--------------------------------|
+| ------------ | ------------------------------ |
 | Build        | `Bun`                          |
 | Runtime      | `Caddy`                        |
 | SPA fallback | configured through `Caddyfile` |
@@ -386,6 +388,7 @@ For a backend-connected feature, the expected direction is:
 </details>
 
 <a id="espanol"></a>
+
 <details>
 <summary><strong>Español</strong></summary>
 
@@ -400,7 +403,7 @@ La composición es manual, la pertenencia por feature es explícita y la primera
 ### Resumen Rápido
 
 | Área                     | Detalle                                                            |
-|--------------------------|--------------------------------------------------------------------|
+| ------------------------ | ------------------------------------------------------------------ |
 | Objetivo del repositorio | Arrancar desde un frontend que ya modele una integración HTTP real |
 | Límite arquitectónico    | `app` -> `features/<feature>` -> `shared`                          |
 | Feature de ejemplo       | `users` con hooks de query/mutation contra una API REST            |
@@ -421,12 +424,13 @@ La composición es manual, la pertenencia por feature es explícita y la primera
 - Abstracción de cliente HTTP con implementación concreta basada en `fetch`
 - Ejemplo funcional completo con `users`, conectado a una API REST concreta de usuarios
 - ESLint, `eslint-plugin-boundaries`, dependency-cruiser, Vitest y dprint
+- `scripts/dead-code.mjs` (parte de `bun run lint`) falla ante exports sin uso, archivos huérfanos y clases CSS sin uso: esta plantilla no deja código muerto
 - Thresholds de cobertura fijados en `100%`
 
 ### Stack
 
 | Runtime                                      | Estado y routing                 | Validación               | Calidad                                                                                                 |
-|----------------------------------------------|----------------------------------|--------------------------|---------------------------------------------------------------------------------------------------------|
+| -------------------------------------------- | -------------------------------- | ------------------------ | ------------------------------------------------------------------------------------------------------- |
 | `Bun`, `React 19`, `Vite`, `Docker`, `Caddy` | `React Router`, `TanStack Query` | `Zod`, `React Hook Form` | `Vitest`, `React Testing Library`, `ESLint`, `dependency-cruiser`, `eslint-plugin-boundaries`, `dprint` |
 
 ### Estructura
@@ -533,7 +537,7 @@ bun run dev
 Scripts disponibles:
 
 | Propósito            | Comando                 |
-|----------------------|-------------------------|
+| -------------------- | ----------------------- |
 | Instalar             | `bun install`           |
 | Dev server           | `bun run dev`           |
 | Build de producción  | `bun run build`         |
@@ -549,7 +553,7 @@ Scripts disponibles:
 El repositorio incluye un `Dockerfile` multi-stage.
 
 | Stage           | Runtime                          |
-|-----------------|----------------------------------|
+| --------------- | -------------------------------- |
 | Build           | `Bun`                            |
 | Runtime         | `Caddy`                          |
 | Fallback de SPA | configurado mediante `Caddyfile` |

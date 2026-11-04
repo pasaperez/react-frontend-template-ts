@@ -1,6 +1,6 @@
 import { amber, amberA, amberDark, amberDarkA, blackA, blue, blueA, cyanDark, cyanDarkA, grass, grassA, grassDark, grassDarkA, iris, irisA, irisDark, irisDarkA, jade, jadeA, jadeDark, jadeDarkA, mauve, mauveA, mauveDark, mauveDarkA, olive, oliveA, oliveDark, oliveDarkA, orange, orangeA, orangeDark, orangeDarkA, red, redA, redDark, redDarkA, sage, sageA, sand, sandA, slate, slateA, slateDark, slateDarkA, whiteA } from '@radix-ui/colors';
 
-export type ThemeMode = 'dark' | 'light';
+type ThemeMode = 'dark' | 'light';
 
 type ColorScale = Record<string, string>;
 
